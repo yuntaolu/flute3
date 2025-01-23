@@ -44,4 +44,3 @@ close $var_stream
 
 file delete $b64_file
 file delete $b64_file2
-
