@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ytlu/projects/flute3-test
+CMAKE_SOURCE_DIR = /home/ytlu/projects/flute3
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ytlu/projects/flute3-test/build
+CMAKE_BINARY_DIR = /home/ytlu/projects/flute3/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ytlu/projects/flute3-test/build/CMakeFiles /home/ytlu/projects/flute3-test/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ytlu/projects/flute3/build/CMakeFiles /home/ytlu/projects/flute3/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ytlu/projects/flute3-test/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ytlu/projects/flute3/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -117,41 +117,126 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named my_program
+# Target rules for targets named flute
 
 # Build rule for target.
-my_program: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 my_program
-.PHONY : my_program
+flute: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 flute
+.PHONY : flute
 
 # fast build rule for target.
-my_program/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_program.dir/build.make CMakeFiles/my_program.dir/build
-.PHONY : my_program/fast
+flute/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flute.dir/build.make CMakeFiles/flute.dir/build
+.PHONY : flute/fast
 
-src/main.o: src/main.cpp.o
-.PHONY : src/main.o
+#=============================================================================
+# Target rules for targets named pyflute
+
+# Build rule for target.
+pyflute: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 pyflute
+.PHONY : pyflute
+
+# fast build rule for target.
+pyflute/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pyflute.dir/build.make CMakeFiles/pyflute.dir/build
+.PHONY : pyflute/fast
+
+POST9.o: POST9.cpp.o
+.PHONY : POST9.o
 
 # target to build an object file
-src/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_program.dir/build.make CMakeFiles/my_program.dir/src/main.cpp.o
-.PHONY : src/main.cpp.o
+POST9.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flute.dir/build.make CMakeFiles/flute.dir/POST9.cpp.o
+.PHONY : POST9.cpp.o
 
-src/main.i: src/main.cpp.i
-.PHONY : src/main.i
+POST9.i: POST9.cpp.i
+.PHONY : POST9.i
 
 # target to preprocess a source file
-src/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_program.dir/build.make CMakeFiles/my_program.dir/src/main.cpp.i
-.PHONY : src/main.cpp.i
+POST9.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flute.dir/build.make CMakeFiles/flute.dir/POST9.cpp.i
+.PHONY : POST9.cpp.i
 
-src/main.s: src/main.cpp.s
-.PHONY : src/main.s
+POST9.s: POST9.cpp.s
+.PHONY : POST9.s
 
 # target to generate assembly for a file
-src/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_program.dir/build.make CMakeFiles/my_program.dir/src/main.cpp.s
-.PHONY : src/main.cpp.s
+POST9.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flute.dir/build.make CMakeFiles/flute.dir/POST9.cpp.s
+.PHONY : POST9.cpp.s
+
+POWV9.o: POWV9.cpp.o
+.PHONY : POWV9.o
+
+# target to build an object file
+POWV9.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flute.dir/build.make CMakeFiles/flute.dir/POWV9.cpp.o
+.PHONY : POWV9.cpp.o
+
+POWV9.i: POWV9.cpp.i
+.PHONY : POWV9.i
+
+# target to preprocess a source file
+POWV9.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flute.dir/build.make CMakeFiles/flute.dir/POWV9.cpp.i
+.PHONY : POWV9.cpp.i
+
+POWV9.s: POWV9.cpp.s
+.PHONY : POWV9.s
+
+# target to generate assembly for a file
+POWV9.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flute.dir/build.make CMakeFiles/flute.dir/POWV9.cpp.s
+.PHONY : POWV9.cpp.s
+
+flute.o: flute.cpp.o
+.PHONY : flute.o
+
+# target to build an object file
+flute.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flute.dir/build.make CMakeFiles/flute.dir/flute.cpp.o
+.PHONY : flute.cpp.o
+
+flute.i: flute.cpp.i
+.PHONY : flute.i
+
+# target to preprocess a source file
+flute.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flute.dir/build.make CMakeFiles/flute.dir/flute.cpp.i
+.PHONY : flute.cpp.i
+
+flute.s: flute.cpp.s
+.PHONY : flute.s
+
+# target to generate assembly for a file
+flute.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/flute.dir/build.make CMakeFiles/flute.dir/flute.cpp.s
+.PHONY : flute.cpp.s
+
+python/pyflute.o: python/pyflute.cpp.o
+.PHONY : python/pyflute.o
+
+# target to build an object file
+python/pyflute.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pyflute.dir/build.make CMakeFiles/pyflute.dir/python/pyflute.cpp.o
+.PHONY : python/pyflute.cpp.o
+
+python/pyflute.i: python/pyflute.cpp.i
+.PHONY : python/pyflute.i
+
+# target to preprocess a source file
+python/pyflute.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pyflute.dir/build.make CMakeFiles/pyflute.dir/python/pyflute.cpp.i
+.PHONY : python/pyflute.cpp.i
+
+python/pyflute.s: python/pyflute.cpp.s
+.PHONY : python/pyflute.s
+
+# target to generate assembly for a file
+python/pyflute.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pyflute.dir/build.make CMakeFiles/pyflute.dir/python/pyflute.cpp.s
+.PHONY : python/pyflute.cpp.s
 
 # Help Target
 help:
@@ -161,10 +246,20 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... my_program"
-	@echo "... src/main.o"
-	@echo "... src/main.i"
-	@echo "... src/main.s"
+	@echo "... flute"
+	@echo "... pyflute"
+	@echo "... POST9.o"
+	@echo "... POST9.i"
+	@echo "... POST9.s"
+	@echo "... POWV9.o"
+	@echo "... POWV9.i"
+	@echo "... POWV9.s"
+	@echo "... flute.o"
+	@echo "... flute.i"
+	@echo "... flute.s"
+	@echo "... python/pyflute.o"
+	@echo "... python/pyflute.i"
+	@echo "... python/pyflute.s"
 .PHONY : help
 
 

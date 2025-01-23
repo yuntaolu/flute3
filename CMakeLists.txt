@@ -1,18 +1,37 @@
-# CMakeLists.txt
-cmake_minimum_required(VERSION 3.1)
-project(my_flute_project)
+CMAKE_MINIMUM_REQUIRED (VERSION 3.1)
+PROJECT(flute)
 
-set(CMAKE_CXX_STANDARD 11)
+SET(CMAKE_CXX_STANDARD 11)
+SET(FLUTE_HOME ${PROJECT_SOURCE_DIR})
 
-# Use your actual paths
-set(FLUTE_LIB_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../flute3/build")
-set(FLUTE_INCLUDE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../flute3")
+# pybind11 v2.12.1
+add_subdirectory(pybind11)  
 
-# Create executable
-add_executable(my_program src/main.cpp)
+set(POWV9_DAT ${FLUTE_HOME}/etc/POWV9.dat)
+set(POST9_DAT ${FLUTE_HOME}/etc/POST9.dat)
+set(POWV9_CPP ${CMAKE_CURRENT_BINARY_DIR}/POWV9.cpp)
+set(POST9_CPP ${CMAKE_CURRENT_BINARY_DIR}/POST9.cpp)
 
-# Include Flute headers
-target_include_directories(my_program PRIVATE ${FLUTE_INCLUDE_DIR})
+add_custom_command(OUTPUT ${POWV9_CPP}
+  COMMAND ${FLUTE_HOME}/etc/MakeDatVar.tcl powv9 ${POWV9_CPP} ${POWV9_DAT}
+  DEPENDS ${POWV9_DAT} ${FLUTE_HOME}/etc/MakeDatVar.tcl
+)
 
-# Link with static library
-target_link_libraries(my_program PRIVATE ${FLUTE_LIB_DIR}/libflute.a)
+add_custom_command(OUTPUT ${POST9_CPP}
+  COMMAND ${FLUTE_HOME}/etc/MakeDatVar.tcl post9 ${POST9_CPP} ${POST9_DAT}
+  DEPENDS ${POST9_DAT} ${FLUTE_HOME}/etc/MakeDatVar.tcl
+)
+
+# Create static library libflute.a
+ADD_LIBRARY(flute STATIC
+  flute.cpp
+  ${POWV9_CPP}
+  ${POST9_CPP}
+)
+
+TARGET_INCLUDE_DIRECTORIES(flute PUBLIC ${FLUTE_HOME})
+set_target_properties(flute PROPERTIES POSITION_INDEPENDENT_CODE ON)
+
+# Python module
+pybind11_add_module(pyflute python/pyflute.cpp)
+target_link_libraries(pyflute PRIVATE flute)
