@@ -1,1 +1,0 @@
-/usr/bin/c++ -rdynamic CMakeFiles/my_program.dir/src/main.cpp.o -o my_program  /home/ytlu/projects/flute3/test/../build/libflute.a 

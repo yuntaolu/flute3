@@ -1,0 +1,6 @@
+python/
+├── setup.py
+├── pyflute/
+    ├── __init__.py
+    ├── _pyflute.cpp  # renamed from pyflute.cpp
+    └── __main__.py

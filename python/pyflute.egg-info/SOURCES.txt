@@ -1,0 +1,10 @@
+setup.py
+./pyflute/__init__.py
+./pyflute/__main__.py
+pyflute/_pyflute.cpp
+pyflute.egg-info/PKG-INFO
+pyflute.egg-info/SOURCES.txt
+pyflute.egg-info/dependency_links.txt
+pyflute.egg-info/not-zip-safe
+pyflute.egg-info/requires.txt
+pyflute.egg-info/top_level.txt

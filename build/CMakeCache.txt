@@ -275,6 +275,29 @@ CMAKE_STRIP:FILEPATH=/usr/bin/strip
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
+//Directory under which to collect all populated content
+FETCHCONTENT_BASE_DIR:PATH=/home/ytlu/projects/flute3/build/_deps
+
+//Disables all attempts to download or update content and assumes
+// source dirs already exist
+FETCHCONTENT_FULLY_DISCONNECTED:BOOL=OFF
+
+//Enables QUIET option for all content population
+FETCHCONTENT_QUIET:BOOL=ON
+
+//When not empty, overrides where to find pre-populated content
+// for pybind11
+FETCHCONTENT_SOURCE_DIR_PYBIND11:PATH=
+
+//Enables UPDATE_DISCONNECTED behavior for all content population
+FETCHCONTENT_UPDATES_DISCONNECTED:BOOL=OFF
+
+//Enables UPDATE_DISCONNECTED behavior just for population of pybind11
+FETCHCONTENT_UPDATES_DISCONNECTED_PYBIND11:BOOL=OFF
+
+//Git command line client
+GIT_EXECUTABLE:FILEPATH=/usr/bin/git
+
 //To enforce that a handle_type_name<> specialization exists
 PYBIND11_DISABLE_HANDLE_TYPE_NAME_DEFAULT_IMPLEMENTATION:BOOL=OFF
 
@@ -324,13 +347,13 @@ flute_IS_TOP_LEVEL:STATIC=ON
 flute_SOURCE_DIR:STATIC=/home/ytlu/projects/flute3
 
 //Value Computed by CMake
-pybind11_BINARY_DIR:STATIC=/home/ytlu/projects/flute3/build/pybind11
+pybind11_BINARY_DIR:STATIC=/home/ytlu/projects/flute3/build/_deps/pybind11-build
 
 //Value Computed by CMake
 pybind11_IS_TOP_LEVEL:STATIC=OFF
 
 //Value Computed by CMake
-pybind11_SOURCE_DIR:STATIC=/home/ytlu/projects/flute3/pybind11
+pybind11_SOURCE_DIR:STATIC=/home/ytlu/projects/flute3/build/_deps/pybind11-src
 
 
 ########################
@@ -469,7 +492,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=2
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=3
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -516,9 +539,11 @@ CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 FIND_PACKAGE_MESSAGE_DETAILS_PYTHON:INTERNAL=/home/ytlu/miniforge3/envs/flute/bin/python3.6.4
 //Details about finding PythonInterp
 FIND_PACKAGE_MESSAGE_DETAILS_PythonInterp:INTERNAL=[/home/ytlu/miniforge3/envs/flute/bin/python][v3.6.4(3.6)]
+//ADVANCED property for variable: GIT_EXECUTABLE
+GIT_EXECUTABLE-ADVANCED:INTERNAL=1
 //Test HAS_FLTO
 HAS_FLTO:INTERNAL=1
-PYBIND11_INCLUDE_DIR:INTERNAL=/home/ytlu/projects/flute3/pybind11/include
+PYBIND11_INCLUDE_DIR:INTERNAL=/home/ytlu/projects/flute3/build/_deps/pybind11-src/include
 //ADVANCED property for variable: PYTHON_EXECUTABLE
 PYTHON_EXECUTABLE-ADVANCED:INTERNAL=1
 PYTHON_INCLUDE_DIRS:INTERNAL=/home/ytlu/miniforge3/envs/flute/include/python3.6m
@@ -541,7 +566,7 @@ _Python:INTERNAL=PYTHON
 //True if pybind11 and all required components found on the system
 pybind11_FOUND:INTERNAL=TRUE
 //Directory where pybind11 headers are located
-pybind11_INCLUDE_DIR:INTERNAL=/home/ytlu/projects/flute3/pybind11/include
+pybind11_INCLUDE_DIR:INTERNAL=/home/ytlu/projects/flute3/build/_deps/pybind11-src/include
 //Directories where pybind11 and possibly Python headers are located
-pybind11_INCLUDE_DIRS:INTERNAL=/home/ytlu/projects/flute3/pybind11/include;/home/ytlu/miniforge3/envs/flute/include/python3.6m
+pybind11_INCLUDE_DIRS:INTERNAL=/home/ytlu/projects/flute3/build/_deps/pybind11-src/include;/home/ytlu/miniforge3/envs/flute/include/python3.6m
 

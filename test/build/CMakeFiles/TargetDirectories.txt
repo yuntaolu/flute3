@@ -1,3 +1,0 @@
-/home/ytlu/projects/flute3/test/build/CMakeFiles/flute_test.dir
-/home/ytlu/projects/flute3/test/build/CMakeFiles/edit_cache.dir
-/home/ytlu/projects/flute3/test/build/CMakeFiles/rebuild_cache.dir

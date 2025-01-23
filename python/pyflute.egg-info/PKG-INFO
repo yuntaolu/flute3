@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: pyflute
+Version: 2.12.1
+Summary: Python bindings for FLUTE
+Home-page: UNKNOWN
+Author: Yuntao Lu
+Author-email: yuntaolu@example.com
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.6
+
+Python bindings for FLUTE - Fast Look-Up Table Based Rectilinear Steiner Minimal Tree Algorithm
+

@@ -65,6 +65,16 @@ CMAKE_BINARY_DIR = /home/ytlu/projects/flute3/build
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+.PHONY : test/fast
+
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
@@ -141,6 +151,19 @@ pyflute: cmake_check_build_system
 pyflute/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/pyflute.dir/build.make CMakeFiles/pyflute.dir/build
 .PHONY : pyflute/fast
+
+#=============================================================================
+# Target rules for targets named flute_test
+
+# Build rule for target.
+flute_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 flute_test
+.PHONY : flute_test
+
+# fast build rule for target.
+flute_test/fast:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/flute_test.dir/build.make tests/CMakeFiles/flute_test.dir/build
+.PHONY : flute_test/fast
 
 POST9.o: POST9.cpp.o
 .PHONY : POST9.o
@@ -246,7 +269,9 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... test"
 	@echo "... flute"
+	@echo "... flute_test"
 	@echo "... pyflute"
 	@echo "... POST9.o"
 	@echo "... POST9.i"

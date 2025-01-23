@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = -Dpyflute_EXPORTS
 
-CXX_INCLUDES = -I/home/ytlu/projects/flute3 -isystem /home/ytlu/projects/flute3/pybind11/include -isystem /home/ytlu/miniforge3/envs/flute/include/python3.6m
+CXX_INCLUDES = -I/home/ytlu/projects/flute3 -isystem /home/ytlu/projects/flute3/build/_deps/pybind11-src/include -isystem /home/ytlu/miniforge3/envs/flute/include/python3.6m
 
 CXX_FLAGS = -fPIC -fvisibility=hidden -flto -fno-fat-lto-objects -std=gnu++11
 
