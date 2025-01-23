@@ -4,14 +4,8 @@ PROJECT(flute)
 SET(CMAKE_CXX_STANDARD 11)
 SET(FLUTE_HOME ${PROJECT_SOURCE_DIR})
 
-# ybind11
-include(FetchContent)
-FetchContent_Declare(
-    pybind11
-    GIT_REPOSITORY https://github.com/pybind/pybind11.git
-    GIT_TAG        v2.12.1  # Specify a recent stable version
-)
-FetchContent_MakeAvailable(pybind11)
+# Add pybind11 from submodule
+add_subdirectory(third_party/pybind11)
 
 # Original Flute library setup
 set(POWV9_DAT ${FLUTE_HOME}/etc/POWV9.dat)
@@ -43,6 +37,6 @@ set_target_properties(flute PROPERTIES POSITION_INDEPENDENT_CODE ON)
 pybind11_add_module(pyflute python/pyflute.cpp)
 target_link_libraries(pyflute PRIVATE flute)
 
-# Add test directory
+# Add tests directory
 enable_testing()
 add_subdirectory(tests)

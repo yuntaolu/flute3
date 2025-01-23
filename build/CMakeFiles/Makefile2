@@ -65,36 +65,21 @@ CMAKE_BINARY_DIR = /home/ytlu/projects/flute3/build
 # The main recursive "all" target.
 all: CMakeFiles/flute.dir/all
 all: CMakeFiles/pyflute.dir/all
-all: _deps/pybind11-build/all
+all: third_party/pybind11/all
 all: tests/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
-preinstall: _deps/pybind11-build/preinstall
+preinstall: third_party/pybind11/preinstall
 preinstall: tests/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
 clean: CMakeFiles/flute.dir/clean
 clean: CMakeFiles/pyflute.dir/clean
-clean: _deps/pybind11-build/clean
+clean: third_party/pybind11/clean
 clean: tests/clean
 .PHONY : clean
-
-#=============================================================================
-# Directory level rules for directory _deps/pybind11-build
-
-# Recursive "all" directory target.
-_deps/pybind11-build/all:
-.PHONY : _deps/pybind11-build/all
-
-# Recursive "preinstall" directory target.
-_deps/pybind11-build/preinstall:
-.PHONY : _deps/pybind11-build/preinstall
-
-# Recursive "clean" directory target.
-_deps/pybind11-build/clean:
-.PHONY : _deps/pybind11-build/clean
 
 #=============================================================================
 # Directory level rules for directory tests
@@ -110,6 +95,21 @@ tests/preinstall:
 # Recursive "clean" directory target.
 tests/clean: tests/CMakeFiles/flute_test.dir/clean
 .PHONY : tests/clean
+
+#=============================================================================
+# Directory level rules for directory third_party/pybind11
+
+# Recursive "all" directory target.
+third_party/pybind11/all:
+.PHONY : third_party/pybind11/all
+
+# Recursive "preinstall" directory target.
+third_party/pybind11/preinstall:
+.PHONY : third_party/pybind11/preinstall
+
+# Recursive "clean" directory target.
+third_party/pybind11/clean:
+.PHONY : third_party/pybind11/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/flute.dir

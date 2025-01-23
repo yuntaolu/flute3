@@ -57,13 +57,23 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ytlu/projects/flute3/build/_deps/pybind11-subbuild
+CMAKE_SOURCE_DIR = /home/ytlu/projects/flute3
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ytlu/projects/flute3/build/_deps/pybind11-subbuild
+CMAKE_BINARY_DIR = /home/ytlu/projects/flute3/build
 
 #=============================================================================
 # Targets provided globally by CMake.
+
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+.PHONY : test/fast
 
 # Special rule for the target edit_cache
 edit_cache:
@@ -87,14 +97,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ytlu/projects/flute3/build/_deps/pybind11-subbuild/CMakeFiles /home/ytlu/projects/flute3/build/_deps/pybind11-subbuild//CMakeFiles/progress.marks
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ytlu/projects/flute3/build/_deps/pybind11-subbuild/CMakeFiles 0
+	cd /home/ytlu/projects/flute3/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/ytlu/projects/flute3/build/CMakeFiles /home/ytlu/projects/flute3/build/third_party/pybind11//CMakeFiles/progress.marks
+	cd /home/ytlu/projects/flute3/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 third_party/pybind11/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ytlu/projects/flute3/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 clean
+	cd /home/ytlu/projects/flute3/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 third_party/pybind11/clean
 .PHONY : clean
 
 # The main clean target
@@ -103,31 +113,18 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 preinstall
+	cd /home/ytlu/projects/flute3/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 third_party/pybind11/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 preinstall
+	cd /home/ytlu/projects/flute3/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 third_party/pybind11/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/ytlu/projects/flute3/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
-
-#=============================================================================
-# Target rules for targets named pybind11-populate
-
-# Build rule for target.
-pybind11-populate: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 pybind11-populate
-.PHONY : pybind11-populate
-
-# fast build rule for target.
-pybind11-populate/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/pybind11-populate.dir/build.make CMakeFiles/pybind11-populate.dir/build
-.PHONY : pybind11-populate/fast
 
 # Help Target
 help:
@@ -137,7 +134,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... pybind11-populate"
+	@echo "... test"
 .PHONY : help
 
 
@@ -149,6 +146,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/ytlu/projects/flute3/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

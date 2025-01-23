@@ -44,7 +44,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/ytlu/projects/flute3/build/_deps/pybind11-build/cmake_install.cmake")
+  include("/home/ytlu/projects/flute3/build/third_party/pybind11/cmake_install.cmake")
   include("/home/ytlu/projects/flute3/build/tests/cmake_install.cmake")
 
 endif()
