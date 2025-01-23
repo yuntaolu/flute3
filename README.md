@@ -1,5 +1,3 @@
-# This repo is obsolete.  Please see the OpenROAD repo instead.
-
 Flute3
 ======================
 
@@ -27,4 +25,3 @@ make
 
 Copyright (c) 2019, Federal University of Rio Grande do Sul (UFRGS)
 All rights reserved.
-
