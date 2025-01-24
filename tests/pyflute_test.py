@@ -16,7 +16,12 @@ def test_flute():
         wl = pyflute.flute_wl(x, y)
         print(f"Wirelength: {wl}")
         assert wl > 0, "Wirelength should be positive"
-
+        
+        # Test tree degree
+        tree = pyflute.flute(x, y)
+        print(f"Tree degree: {tree.deg}")
+        assert tree.deg > 0, "Tree degree should be positive"
+        
         # Test tree construction
         tree = pyflute.flute(x, y)
         print(f"Tree length: {tree.length}")

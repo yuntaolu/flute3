@@ -1,0 +1,28 @@
+name: flute
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - _libgcc_mutex=0.1=conda_forge
+  - _openmp_mutex=4.5=2_gnu
+  - ca-certificates=2024.12.14=hbcca054_0
+  - libgcc=14.2.0=h77fa898_1
+  - libgcc-ng=14.2.0=h69a702a_1
+  - libgomp=14.2.0=h77fa898_1
+  - libzlib=1.2.11=h166bdaf_1014
+  - ncurses=5.9=10
+  - openssl=1.0.2u=h516909a_0
+  - pip=21.3.1=pyhd8ed1ab_0
+  - python=3.6.4=0
+  - python_abi=3.6=2_cp36m
+  - readline=7.0=0
+  - setuptools=58.0.4=py36h5fab9bb_2
+  - sqlite=3.20.1=2
+  - tk=8.6.12=h27826a3_0
+  - wheel=0.37.1=pyhd8ed1ab_0
+  - xz=5.2.6=h166bdaf_0
+  - zlib=1.2.11=h166bdaf_1014
+  - pip:
+      - numpy==1.19.5
+      - pybind11==2.12.1
+prefix: /home/ytlu/miniforge3/envs/flute

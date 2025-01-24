@@ -30,8 +30,8 @@ ext_modules = [
 setup(
     name="pyflute",
     version="2.12.1",
-    author="Yuntao Lu",
-    author_email="yuntaolu@example.com",  # replace with your email
+    author="Pineapple",
+    author_email="Pineapple@fake.com",  
     description="Python bindings for FLUTE",
     long_description="Python bindings for FLUTE - Fast Look-Up Table Based Rectilinear Steiner Minimal Tree Algorithm",
     packages=['pyflute'],
