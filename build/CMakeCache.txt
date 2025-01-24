@@ -324,13 +324,13 @@ flute_IS_TOP_LEVEL:STATIC=ON
 flute_SOURCE_DIR:STATIC=/home/ytlu/projects/flute3
 
 //Value Computed by CMake
-pybind11_BINARY_DIR:STATIC=/home/ytlu/projects/flute3/build/third_party/pybind11
+pybind11_BINARY_DIR:STATIC=/home/ytlu/projects/flute3/build/thirdparty/pybind11
 
 //Value Computed by CMake
 pybind11_IS_TOP_LEVEL:STATIC=OFF
 
 //Value Computed by CMake
-pybind11_SOURCE_DIR:STATIC=/home/ytlu/projects/flute3/third_party/pybind11
+pybind11_SOURCE_DIR:STATIC=/home/ytlu/projects/flute3/thirdparty/pybind11
 
 
 ########################
@@ -518,7 +518,7 @@ FIND_PACKAGE_MESSAGE_DETAILS_PYTHON:INTERNAL=/home/ytlu/miniforge3/envs/flute/bi
 FIND_PACKAGE_MESSAGE_DETAILS_PythonInterp:INTERNAL=[/home/ytlu/miniforge3/envs/flute/bin/python][v3.6.4(3.6)]
 //Test HAS_FLTO
 HAS_FLTO:INTERNAL=1
-PYBIND11_INCLUDE_DIR:INTERNAL=/home/ytlu/projects/flute3/third_party/pybind11/include
+PYBIND11_INCLUDE_DIR:INTERNAL=/home/ytlu/projects/flute3/thirdparty/pybind11/include
 //ADVANCED property for variable: PYTHON_EXECUTABLE
 PYTHON_EXECUTABLE-ADVANCED:INTERNAL=1
 PYTHON_INCLUDE_DIRS:INTERNAL=/home/ytlu/miniforge3/envs/flute/include/python3.6m
@@ -541,7 +541,7 @@ _Python:INTERNAL=PYTHON
 //True if pybind11 and all required components found on the system
 pybind11_FOUND:INTERNAL=TRUE
 //Directory where pybind11 headers are located
-pybind11_INCLUDE_DIR:INTERNAL=/home/ytlu/projects/flute3/third_party/pybind11/include
+pybind11_INCLUDE_DIR:INTERNAL=/home/ytlu/projects/flute3/thirdparty/pybind11/include
 //Directories where pybind11 and possibly Python headers are located
-pybind11_INCLUDE_DIRS:INTERNAL=/home/ytlu/projects/flute3/third_party/pybind11/include;/home/ytlu/miniforge3/envs/flute/include/python3.6m
+pybind11_INCLUDE_DIRS:INTERNAL=/home/ytlu/projects/flute3/thirdparty/pybind11/include;/home/ytlu/miniforge3/envs/flute/include/python3.6m
 

@@ -5,7 +5,7 @@ SET(CMAKE_CXX_STANDARD 11)
 SET(FLUTE_HOME ${PROJECT_SOURCE_DIR})
 
 # Add pybind11 from submodule
-add_subdirectory(third_party/pybind11)
+add_subdirectory(thirdparty/pybind11)
 
 # Original Flute library setup
 set(POWV9_DAT ${FLUTE_HOME}/etc/POWV9.dat)

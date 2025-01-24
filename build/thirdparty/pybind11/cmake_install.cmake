@@ -1,4 +1,4 @@
-# Install script for directory: /home/ytlu/projects/flute3/third_party/pybind11
+# Install script for directory: /home/ytlu/projects/flute3/thirdparty/pybind11
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

@@ -97,14 +97,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/ytlu/projects/flute3/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/ytlu/projects/flute3/build/CMakeFiles /home/ytlu/projects/flute3/build/third_party/pybind11//CMakeFiles/progress.marks
-	cd /home/ytlu/projects/flute3/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 third_party/pybind11/all
+	cd /home/ytlu/projects/flute3/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/ytlu/projects/flute3/build/CMakeFiles /home/ytlu/projects/flute3/build/thirdparty/pybind11//CMakeFiles/progress.marks
+	cd /home/ytlu/projects/flute3/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 thirdparty/pybind11/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ytlu/projects/flute3/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/ytlu/projects/flute3/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 third_party/pybind11/clean
+	cd /home/ytlu/projects/flute3/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 thirdparty/pybind11/clean
 .PHONY : clean
 
 # The main clean target
@@ -113,12 +113,12 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/ytlu/projects/flute3/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 third_party/pybind11/preinstall
+	cd /home/ytlu/projects/flute3/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 thirdparty/pybind11/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/ytlu/projects/flute3/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 third_party/pybind11/preinstall
+	cd /home/ytlu/projects/flute3/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 thirdparty/pybind11/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
