@@ -2042,7 +2042,7 @@ void plottree(Tree t) {
 }
 
 // Write svg file viewable in a web browser.
-// Write svg file viewable in a web browser.
+/*v3*/
 void write_svg(Tree t, const char *filename) {
     if (!filename || !t.branch) {
         fprintf(stderr, "Error: Invalid input parameters for write_svg\n");
@@ -2142,7 +2142,109 @@ void write_svg(Tree t, const char *filename) {
     fclose(stream);
 }
 
-/*void write_svg(Tree t,
+/* v2 
+void write_svg(Tree t, const char *filename) {
+    if (!filename || !t.branch) {
+        fprintf(stderr, "Error: Invalid input parameters for write_svg\n");
+        return;
+    }
+
+    // Find boundaries including both endpoints of branches
+    int x_min = INT_MAX;
+    int y_min = INT_MAX;
+    int x_max = INT_MIN;
+    int y_max = INT_MIN;
+
+    // Check all branches including their connected endpoints
+    for (int i = 0; i < 2 * t.deg - 2; i++) {
+        // Current branch point
+        x_min = std::min(x_min, t.branch[i].x);
+        y_min = std::min(y_min, t.branch[i].y);
+        x_max = std::max(x_max, t.branch[i].x);
+        y_max = std::max(y_max, t.branch[i].y);
+
+        // Connected branch point
+        if (t.branch[i].n >= 0 && t.branch[i].n < 2 * t.deg - 2) {
+            x_min = std::min(x_min, t.branch[t.branch[i].n].x);
+            y_min = std::min(y_min, t.branch[t.branch[i].n].y);
+            x_max = std::max(x_max, t.branch[t.branch[i].n].x);
+            y_max = std::max(y_max, t.branch[t.branch[i].n].y);
+        }
+    }
+
+    // Add padding (5% on each side)
+    int dx = x_max - x_min;
+    int dy = y_max - y_min;
+    int padding_x = dx / 20;
+    int padding_y = dy / 20;
+    
+    x_min -= padding_x;
+    y_min -= padding_y;
+    dx += 2 * padding_x;
+    dy += 2 * padding_y;
+
+    // Calculate scaling factors for better visualization
+    const int target_size = 800; // target SVG size
+    const double scale = std::min(
+        target_size / static_cast<double>(dx),
+        target_size / static_cast<double>(dy)
+    );
+    const int stroke_width = std::max(static_cast<int>(2 / scale), 1);
+
+    FILE* stream = fopen(filename, "w");
+    if (!stream) {
+        fprintf(stderr, "Error: Could not open file %s for writing\n", filename);
+        return;
+    }
+
+    // Write SVG header with style definitions
+    fprintf(stream, 
+        "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n"
+        "<svg xmlns=\"http://www.w3.org/2000/svg\"\n"
+        "     xmlns:xlink=\"http://www.w3.org/1999/xlink\"\n"
+        "     viewBox=\"%d %d %d %d\"\n"
+        "     width=\"%d\" height=\"%d\">\n"
+        "<style>\n"
+        "    .branch { stroke: #000000; stroke-linecap: round; }\n"
+        "    .pin { fill: #ff0000; stroke: none; }\n"
+        "</style>\n",
+        x_min, y_min, dx, dy,
+        static_cast<int>(dx * scale),
+        static_cast<int>(dy * scale));
+
+    // Draw branches
+    fprintf(stream, "<g class=\"branches\">\n");
+    for (int i = 0; i < 2 * t.deg - 2; i++) {
+        if (t.branch[i].n >= 0 && t.branch[i].n < 2 * t.deg - 2) {
+            fprintf(stream, 
+                "    <line class=\"branch\" "
+                "x1=\"%d\" y1=\"%d\" x2=\"%d\" y2=\"%d\" "
+                "style=\"stroke-width: %d\"/>\n",
+                t.branch[i].x, t.branch[i].y,
+                t.branch[t.branch[i].n].x, t.branch[t.branch[i].n].y,
+                stroke_width);
+        }
+    }
+    fprintf(stream, "</g>\n");
+
+    // Draw pins (first deg points are actual pins)
+    fprintf(stream, "<g class=\"pins\">\n");
+    for (int i = 0; i < t.deg; i++) {
+        fprintf(stream, 
+            "    <circle class=\"pin\" "
+            "cx=\"%d\" cy=\"%d\" r=\"%d\"/>\n",
+            t.branch[i].x, t.branch[i].y,
+            stroke_width * 2);
+    }
+    fprintf(stream, "</g>\n");
+
+    fprintf(stream, "</svg>\n");
+    fclose(stream);
+}
+*/
+
+/* v1
+void write_svg(Tree t,
                const char *filename) {
   int x_min = INT_MAX;
   int y_min = INT_MAX;

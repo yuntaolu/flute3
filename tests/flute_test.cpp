@@ -77,6 +77,7 @@ int main() {
         // Write tree to SVG file
         try {
             write_svg(tree, "test_cpp_routing_tree.svg");
+            std::cout << "Saving tree to " << "test_cpp_routing_tree.svg"<< std::endl;
         } catch (const std::exception& e) {
             std::cerr << "Warning: Failed to write SVG file: " << e.what() << std::endl;
         }
