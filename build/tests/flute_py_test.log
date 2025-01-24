@@ -1,4 +1,5 @@
-Wirelength: 340
+Wirelength: 350
 Tree degree: 12
-Tree length: 340
+Tree length: 350
+Saving tree to test_python_routing_tree.svg
 Python tests passed!

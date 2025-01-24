@@ -61,6 +61,19 @@ PYBIND11_MODULE(_pyflute, m) {  // Changed name to _pyflute for better Python pa
     }, "Construct RSMT", 
     py::arg("x"), py::arg("y"), py::arg("accuracy") = FLUTE_ACCURACY);
 
-    m.def("write_svg", &write_svg, "Write tree to SVG file",
-        py::arg("tree"), py::arg("filename"));
+    // m.def("write_svg", &write_svg, "Write tree to SVG file",
+    //     py::arg("tree"), py::arg("filename"));
+    
+    // Bind the write_svg function
+    m.def("write_svg", &write_svg, 
+          py::arg("tree"),
+          py::arg("filename"),
+          "Write a Steiner tree to an SVG file.\n\n"
+          "Args:\n"
+          "    tree (Tree): The Steiner tree to visualize\n"
+          "    filename (str): Output SVG file path\n\n"
+          "The SVG will show:\n"
+          "- Red circles for pins\n"
+          "- Blue circles for Steiner points\n"
+          "- Black lines for connections");
 }

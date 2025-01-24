@@ -2084,7 +2084,8 @@ void write_svg(Tree t, const char *filename) {
     dy += 2 * padding_y;
 
     // Calculate scaling factors for better visualization
-    const int target_size = 800; // target SVG size
+    // Target SVG size
+    const int target_size = 600; 
     const double scale = std::min(
         target_size / static_cast<double>(dx),
         target_size / static_cast<double>(dy)
@@ -2097,7 +2098,7 @@ void write_svg(Tree t, const char *filename) {
         return;
     }
 
-    // Write SVG header with style definitions
+    // Write SVG header with style definitions，appending steiner points
     fprintf(stream, 
         "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n"
         "<svg xmlns=\"http://www.w3.org/2000/svg\"\n"
@@ -2107,12 +2108,13 @@ void write_svg(Tree t, const char *filename) {
         "<style>\n"
         "    .branch { stroke: #000000; stroke-linecap: round; }\n"
         "    .pin { fill: #ff0000; stroke: none; }\n"
+        "    .steiner { fill: #0000ff; stroke: none; }\n"
         "</style>\n",
         x_min, y_min, dx, dy,
         static_cast<int>(dx * scale),
         static_cast<int>(dy * scale));
 
-    // Draw branches
+    // Stroke lines
     fprintf(stream, "<g class=\"branches\">\n");
     for (int i = 0; i < 2 * t.deg - 2; i++) {
         if (t.branch[i].n >= 0 && t.branch[i].n < 2 * t.deg - 2) {
@@ -2127,11 +2129,22 @@ void write_svg(Tree t, const char *filename) {
     }
     fprintf(stream, "</g>\n");
 
-    // Draw pins (first deg points are actual pins)
+    // Pin points (in red)
     fprintf(stream, "<g class=\"pins\">\n");
     for (int i = 0; i < t.deg; i++) {
         fprintf(stream, 
             "    <circle class=\"pin\" "
+            "cx=\"%d\" cy=\"%d\" r=\"%d\"/>\n",
+            t.branch[i].x, t.branch[i].y,
+            stroke_width * 2);
+    }
+    fprintf(stream, "</g>\n");
+
+    // Steiner points (in blue)
+    fprintf(stream, "<g class=\"steiner-points\">\n");
+    for (int i = t.deg; i < 2 * t.deg - 2; i++) {
+        fprintf(stream, 
+            "    <circle class=\"steiner\" "
             "cx=\"%d\" cy=\"%d\" r=\"%d\"/>\n",
             t.branch[i].x, t.branch[i].y,
             stroke_width * 2);

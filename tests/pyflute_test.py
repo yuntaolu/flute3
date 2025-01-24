@@ -29,7 +29,8 @@ def test_flute():
 
         # Test SVG output
         pyflute.write_svg(tree, "test_python_routing_tree.svg")
-
+        print("Saving tree to test_python_routing_tree.svg")
+        
         print("Python tests passed!")
         return 0
 
