@@ -61,8 +61,23 @@ PYBIND11_MODULE(_pyflute, m) {  // Changed name to _pyflute for better Python pa
     }, "Construct RSMT", 
     py::arg("x"), py::arg("y"), py::arg("accuracy") = FLUTE_ACCURACY);
 
-    // m.def("write_svg", &write_svg, "Write tree to SVG file",
-    //     py::arg("tree"), py::arg("filename"));
+    // Bind the flute_pin_wl function
+    // m.def("flute_pin_wl", &Flute::flute_pin_wl,
+    //       py::arg("tree"),
+    //       py::arg("x1"),
+    //       py::arg("y1"),
+    //       py::arg("x2"),
+    //       py::arg("y2"),
+    //       "Calculate the path length between two points on the Steiner tree.\n\n"
+    //       "Args:\n"
+    //       "  - tree (Tree): The Steiner tree\n"
+    //       "  - x1 (int): x-coordinate of first point\n"
+    //       "  - y1 (int): y-coordinate of first point\n"
+    //       "  - x2 (int): x-coordinate of second point\n"
+    //       "  - y2 (int): y-coordinate of second point\n\n"
+    //       "Returns:\n"
+    //       "  int: Total path length between the points following the Steiner tree structure.\n"
+    //        "  Returns -1 if no valid path is found or if input is invalid.\n");
     
     // Bind the write_svg function
     m.def("write_svg", &write_svg, 

@@ -123,6 +123,9 @@ inline Tree flutes_LMD(int d, DTYPE xs[], DTYPE ys[], int s[], int acc) {
                 return flutes_MD(d, xs, ys, s, acc);
         }
 }
+
+// DTYPE flute_pin_wl(Tree t, DTYPE x1, DTYPE y1, DTYPE x2, DTYPE y2);
+
 }  // namespace Flute
 #endif /* __FLUTE_H__ */
 

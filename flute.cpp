@@ -2018,6 +2018,97 @@ DTYPE wirelength(Tree t) {
         return l;
 }
 
+// Calculate wirelength between two points in the tree
+// DTYPE flute_pin_wl(Tree t, DTYPE x1, DTYPE y1, DTYPE x2, DTYPE y2) {
+//     if (t.deg == 0 || t.branch == nullptr) {
+//         return -1; // Invalid tree
+//     }
+
+//     // Find pin indices closest to given coordinates
+//     int pin1_idx = -1;
+//     int pin2_idx = -1;
+//     DTYPE min_dist1 = std::numeric_limits<DTYPE>::max();
+//     DTYPE min_dist2 = std::numeric_limits<DTYPE>::max();
+
+//     // Only search among actual pins (first t.deg nodes), not Steiner points
+//     for (int i = 0; i < t.deg; i++) {
+//         DTYPE dist1 = ADIFF(t.branch[i].x, x1) + ADIFF(t.branch[i].y, y1);
+//         if (dist1 < min_dist1) {
+//             min_dist1 = dist1;
+//             pin1_idx = i;
+//         }
+
+//         DTYPE dist2 = ADIFF(t.branch[i].x, x2) + ADIFF(t.branch[i].y, y2);
+//         if (dist2 < min_dist2) {
+//             min_dist2 = dist2;
+//             pin2_idx = i;
+//         }
+//     }
+
+//     if (pin1_idx == -1 || pin2_idx == -1) {
+//         return -1; // Couldn't find matching pins
+//     }
+
+//     // Same pin - distance is 0
+//     if (pin1_idx == pin2_idx) {
+//         return 0;
+//     }
+
+//     const int node_count = 2 * t.deg - 2; // Total nodes including Steiner points
+//     std::vector<bool> visited(node_count, false);
+//     std::vector<DTYPE> dist_to_root(node_count, std::numeric_limits<DTYPE>::max());
+//     std::vector<int> parent(node_count, -1);
+
+//     // Find the path from both pins to root using BFS
+//     std::queue<int> q;
+//     dist_to_root[pin1_idx] = 0;
+//     q.push(pin1_idx);
+    
+//     while (!q.empty()) {
+//         int curr = q.front();
+//         q.pop();
+        
+//         if (curr == pin2_idx) {
+//             break; // Found the target pin
+//         }
+
+//         if (visited[curr]) continue;
+//         visited[curr] = true;
+
+//         // Process neighbor from curr->n
+//         int next = t.branch[curr].n;
+//         if (!visited[next]) {
+//             DTYPE edge_len = ADIFF(t.branch[curr].x, t.branch[next].x) + 
+//                            ADIFF(t.branch[curr].y, t.branch[next].y);
+//             if (dist_to_root[next] > dist_to_root[curr] + edge_len) {
+//                 dist_to_root[next] = dist_to_root[curr] + edge_len;
+//                 parent[next] = curr;
+//                 q.push(next);
+//             }
+//         }
+
+//         // Process neighbors where curr is n->n
+//         for (int i = 0; i < node_count; i++) {
+//             if (t.branch[i].n == curr && !visited[i]) {
+//                 DTYPE edge_len = ADIFF(t.branch[curr].x, t.branch[i].x) + 
+//                                ADIFF(t.branch[curr].y, t.branch[i].y);
+//                 if (dist_to_root[i] > dist_to_root[curr] + edge_len) {
+//                     dist_to_root[i] = dist_to_root[curr] + edge_len;
+//                     parent[i] = curr;
+//                     q.push(i);
+//                 }
+//             }
+//         }
+//     }
+
+//     // If we didn't reach pin2, no path exists
+//     if (dist_to_root[pin2_idx] == std::numeric_limits<DTYPE>::max()) {
+//         return -1;
+//     }
+
+//     return dist_to_root[pin2_idx];
+// }
+
 void printtree(Tree t) {
         int i;
 
