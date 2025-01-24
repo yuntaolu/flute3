@@ -50,8 +50,8 @@ int main() {
         FluteLUTManager lutManager;
 
         // Example: Calculate wirelength for 12 pins
-        std::vector<DTYPE> x = {0, 100, 100, 0, 0, 80, 50, 0, 20, 10, 80, 50};
-        std::vector<DTYPE> y = {0, 0, 100, 100, 0, 10, 80, 50, 10, 80, 50, 80};
+        std::vector<DTYPE> x = {0, 100, 100, 0, 50, 80, 50, 0, 20, 10, 80, 60};
+        std::vector<DTYPE> y = {0, 0, 100, 100, 90, 10, 80, 50, 10, 80, 50, 80};
 
         // Validate inputs
         validateInputs(x, y);

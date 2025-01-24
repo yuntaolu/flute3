@@ -9,8 +9,8 @@ def test_flute():
 
     try:
         # Test data
-        x = np.array([0, 100, 100, 0, 0, 80, 50, 0, 20, 10, 80, 50], dtype=np.int32)
-        y = np.array([0, 0, 100, 100, 0, 10, 80, 50, 10, 80, 50, 80], dtype=np.int32)
+        x = np.array([0, 100, 100, 0, 50, 80, 50, 0, 20, 10, 80, 60], dtype=np.int32)
+        y = np.array([0, 0, 100, 100, 90, 10, 80, 50, 10, 80, 50, 80], dtype=np.int32)
 
         # Test wirelength calculation
         wl = pyflute.flute_wl(x, y)
